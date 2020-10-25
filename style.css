@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+#title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#description {
+  font-size: 1.2rem;
+}
+
+#title,
+#description {
+  text-anchor: middle;
+}
+
+#tooltip,
+#x-axis,
+#y-axis {
+  font-size: 0.8rem;
+}
+
+.cell:hover {
+  stroke: black;
+}
+
+#tooltip {
+  position: absolute;
+  z-index: 10;
+  display: none;
+  background-color: #333333;
+  color: #eeeeee;
+  text-align: center;
+  max-width: 200px;
+  border-radius: 4px;
+  padding: 8px;
+}
