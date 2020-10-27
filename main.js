@@ -87,11 +87,12 @@ function heatMap(baseTemp, dataset) {
     const w = 100;
     const h = 50;
     const offset = 20;
-    const x = event.pageX + offset;
-    const y = event.pageY + offset;
-    const { innerWidth, innerHeight } = window;
-    const isOverflowX = x + w > innerWidth;
-    const isOverflowY = y + h > innerHeight;
+    const left = event.pageX + offset;
+    const top = event.pageY + offset;
+    const right = (svgWidth - event.pageX) + offset;
+    const bottom = (svgHeight - event.pageY) + offset;
+    const isOverflowX = left + w > svgWidth;
+    const isOverflowY = top + h > svgHeight;
 
     tooltip.attr('data-year', data.year)
       .html(
@@ -99,10 +100,10 @@ function heatMap(baseTemp, dataset) {
         `temp: ${d3.format('.3f')(baseTemp + data.variance)}&deg;C<br>` +
         `var: ${data.variance}&deg;C`,
       )
-      .style('left', isOverflowX ? '' : `${x}px`)
-      .style('top', isOverflowY ? '' : `${y}px`)
-      .style('right', isOverflowX ? `${innerWidth - x}px` : '')
-      .style('bottom', isOverflowY ? `${innerHeight - y}px` : '')
+      .style('left', isOverflowX ? '' : `${left}px`)
+      .style('top', isOverflowY ? '' : `${top}px`)
+      .style('right', isOverflowX ? `${right}px` : '')
+      .style('bottom', isOverflowY ? `${bottom}px` : '')
       .style('display', 'block');
   }
 
