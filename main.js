@@ -6,7 +6,7 @@ d3.json(datasetURL)
 
 function heatMap(baseTemp, dataset) {
   const svgWidth = window.innerWidth;
-  const svgHeight = window.innerHeight * 0.97;
+  const svgHeight = window.innerHeight * 0.99;
   const margin = { top: 100, right: 50, bottom: 80, left: 100 };
 
   const root = d3.select('#root');
