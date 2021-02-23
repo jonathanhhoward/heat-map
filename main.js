@@ -20,8 +20,7 @@ function heatMap(baseTemp, dataset) {
       { id: 'title', text: 'Global Surface Temperature', y: margin.top * 0.5 },
       { id: 'description', text: `Monthly Variance from 8.66°C`, y: margin.top * 0.75 },
     ])
-    .enter()
-    .append('text')
+    .join('text')
     .attr('id', d => d.id)
     .attr('x', svgWidth * 0.5)
     .attr('y', d => d.y)
@@ -66,8 +65,7 @@ function heatMap(baseTemp, dataset) {
 
   chart.selectAll('rect')
     .data(dataset)
-    .enter()
-    .append('rect')
+    .join('rect')
     .attr('class', 'cell')
     .attr('x', d => xScale(d.year))
     .attr('y', d => yScale(d.month - 1))
@@ -134,8 +132,7 @@ function heatMap(baseTemp, dataset) {
 
   legend.selectAll('rect')
     .data(legendScale.domain())
-    .enter()
-    .append('rect')
+    .join('rect')
     .attr('x', d => legendScale(d))
     .attr('y', 0)
     .attr('width', legendScale.bandwidth())
